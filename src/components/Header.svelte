@@ -34,17 +34,13 @@
 
 <style>
         header {
-    
                 padding: 10px;
-                background-color:rgb(61, 3, 3);
+                background-color:rgb(255, 255, 255);
         }
         .menu-container {
                 display: flex;
                 justify-content: center;
-                width: 100%;
-
-
-                
+                width: 100%;                
                 padding: 10px;
         }
 
