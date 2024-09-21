@@ -1,12 +1,35 @@
-<!doctype html>
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" href="%sveltekit.assets%/favicon.png" />
-		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		%sveltekit.head%
-	</head>
-	<body data-sveltekit-preload-data="hover">
-		<div style="display: contents">%sveltekit.body%</div>
-	</body>
+<!DOCTYPE html>
+<html lang="fr">
+        <head>
+                <meta charset="utf-8" />
+                <link rel="icon" href="%sveltekit.assets%/favicon.png" />
+                <meta name="viewport" content="width=device-width, initial-scale=1" />
+                <script src="https://kit.fontawesome.com/34232c07fe.js" crossorigin="anonymous"></script>
+                <link rel="manifest" href="/manifest.json" />
+                <link rel="preconnect" href="https://fonts.googleapis.com" />
+                <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+                <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&family=Zain:wght@200;300;400;700;800;900&display=swap" rel="stylesheet" />
+                %sveltekit.head%
+        </head>
+        <body data-sveltekit-preload-data="hover">
+                <div style="display: contents">%sveltekit.body%</div>
+
+                <div class="onesignal-customlink-container"></div>
+
+              <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+<script>
+  window.OneSignalDeferred = window.OneSignalDeferred || [];
+  OneSignalDeferred.push(async function(OneSignal) {
+    await OneSignal.init({
+      appId: "f8dc00da-5d28-4a9b-b9d6-c26674963a7c",
+      safari_web_id: "web.onesignal.auto.5e2915a8-1095-4900-b2af-7b25bf2970dd",
+      notifyButton: {
+        enable: true,
+      },
+    });
+  });
+</script>
+
+
+        </body>
 </html>
