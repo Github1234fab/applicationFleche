@@ -66,7 +66,8 @@ app.post("/send-notification", async (req, res) => {
                                 include_player_ids: playerIds, // Les IDs des utilisateurs mobiles
                                 headings: { en: title },
                                 contents: { en: message },
-                                safari_web_id: "web.onesignal.auto.YOUR_SAFARI_WEB_ID", // ID Web Safari OneSignal
+                                // safari_web_id: "web.onesignal.auto.YOUR_SAFARI_WEB_ID", // ID Web Safari
+                                safari_web_id: "web.onesignal.auto.5e2915a8-1095-4900-b2af-7b25bf2970dd", // ID Web Safari OneSignal
                         },
                         {
                                 headers: {
