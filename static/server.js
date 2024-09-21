@@ -51,8 +51,8 @@ import axios from "axios";
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-const ONE_SIGNAL_APP_ID = "f8dc00da-5d28-4a9b-b9d6-c26674963a7c"; // Ton app_id OneSignal
-const ONE_SIGNAL_API_KEY = "MWY5MWEzMzAtYjY1OC00YzMwLThkYTAtZDQ3MTA3MGI5NzZh"; // Ta clé API REST OneSignal
+const ONE_SIGNAL_APP_ID = "6b555faf-cec2-41d7-9318-00174b5dd69e"; // Ton app_id OneSignal
+const ONE_SIGNAL_API_KEY = "YzdhYTliMDktOWZlYS00NGVhLWFiMDMtZmY2Y2MwZTk4ZTNm"; // Ta clé API REST OneSignal
 
 app.use(express.json());
 
@@ -69,7 +69,7 @@ app.post("/send-notification", async (req, res) => {
                                 headings: { en: title },
                                 contents: { en: message },
                                 // safari_web_id: "web.onesignal.auto.YOUR_SAFARI_WEB_ID", // ID Web Safari
-                                safari_web_id: "web.onesignal.auto.5e2915a8-1095-4900-b2af-7b25bf2970dd", // ID Web Safari OneSignal
+                                safari_web_id: "web.onesignal.auto.2900aeea-27da-4bc5-9f95-2e3d9a76781c", // ID Web Safari OneSignal
                         },
                         {
                                 headers: {
