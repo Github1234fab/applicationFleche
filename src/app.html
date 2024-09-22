@@ -29,39 +29,5 @@
                                 });
                         });
                 </script>
-
-                <script>
-                        window.OneSignal = window.OneSignal || [];
-                        OneSignal.push(function () {
-                                OneSignal.init({
-                                        appId: "YOUR_APP_ID",
-                                        notifyButton: {
-                                                enable: true, // Activer la cloche d'abonnement
-                                                size: "medium", // Taille de la cloche
-                                                theme: "default", // Thème de la cloche
-                                                position: "bottom-right", // Position de la cloche
-                                                offset: {
-                                                        bottom: "0px",
-                                                        right: "0px",
-                                                },
-                                                showCredit: false, // Cacher le logo OneSignal
-                                                text: {
-                                                        "tip.state.unsubscribed": "Souhaitez-vous recevoir des notifications ?",
-                                                        "tip.state.subscribed": "Super, vous êtes abonné aux notifications",
-                                                        "tip.state.blocked": "Suivez ces instructions pour autoriser les notifications",
-                                                        "message.prenotify": "Cliquez pour recevoir des notifications",
-                                                        "message.action.subscribed": "Merci de vous être abonné",
-                                                        "message.action.resubscribed": "Vous êtes de nouveau abonné",
-                                                        "message.action.unsubscribed": "Vous ne recevrez plus de notifications",
-                                                        "dialog.main.title": "Gérer les notifications",
-                                                        "dialog.main.button.subscribe": "S'ABONNER",
-                                                        "dialog.main.button.unsubscribe": "SE DÉSABONNER",
-                                                        "dialog.blocked.title": "Débloquer les notifications",
-                                                        "dialog.blocked.message": "Suivez les instructions pour autoriser les notifications:",
-                                                },
-                                        },
-                                });
-                        });
-                </script>
         </body>
 </html>
