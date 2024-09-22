@@ -1,9 +1,10 @@
 <script>
+        import { ScriptElementKind } from "typescript";
         import Calendar from "../components/Calendar.svelte";
         import UpLoadJson from "../components/UpLoadJson.svelte";
         import UpLoadJsonAdvertisement from "../components/UpLoadJsonAdvertisement.svelte";
         import "../routes/styles.css";
-
+</script>
 
 <main>
         <Calendar />
