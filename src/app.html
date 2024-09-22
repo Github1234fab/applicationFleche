@@ -30,5 +30,39 @@
   });
 </script>
 
+<script>
+  window.OneSignal = window.OneSignal || [];
+  OneSignal.push(function() {
+    OneSignal.init({
+      appId: "YOUR_APP_ID",
+      notifyButton: {
+        enable: true, // Activer la cloche d'abonnement
+        size: 'medium', // Taille de la cloche
+        theme: 'default', // Thème de la cloche
+        position: 'bottom-right', // Position de la cloche
+        offset: {
+          bottom: '0px',
+          right: '0px'
+        },
+        showCredit: false, // Cacher le logo OneSignal
+        text: {
+          'tip.state.unsubscribed': 'Subscribe to notifications',
+          'tip.state.subscribed': "You're subscribed to notifications",
+          'tip.state.blocked': "You've blocked notifications",
+          'message.prenotify': 'Click to subscribe to notifications',
+          'message.action.subscribed': "Thanks for subscribing!",
+          'message.action.resubscribed': "You're subscribed to notifications",
+          'message.action.unsubscribed': "You won't receive notifications again",
+          'dialog.main.title': 'Manage Site Notifications',
+          'dialog.main.button.subscribe': 'SUBSCRIBE',
+          'dialog.main.button.unsubscribe': 'UNSUBSCRIBE',
+          'dialog.blocked.title': 'Unblock Notifications',
+          'dialog.blocked.message': "Follow these instructions to allow notifications:"
+        }
+      }
+    });
+  });
+</script>
+
         </body>
 </html>
