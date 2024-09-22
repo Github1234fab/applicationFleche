@@ -16,53 +16,52 @@
 
                 <div class="onesignal-customlink-container"></div>
 
-<script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
-<script>
-  window.OneSignalDeferred = window.OneSignalDeferred || [];
-  OneSignalDeferred.push(async function(OneSignal) {
-    await OneSignal.init({
-      appId: "6b555faf-cec2-41d7-9318-00174b5dd69e",
-      safari_web_id: "web.onesignal.auto.2900aeea-27da-4bc5-9f95-2e3d9a76781c",
-      notifyButton: {
-        enable: true,
-      },
-    });
-  });
-</script>
+                <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
+                <script>
+                        window.OneSignalDeferred = window.OneSignalDeferred || [];
+                        OneSignalDeferred.push(async function (OneSignal) {
+                                await OneSignal.init({
+                                        appId: "6b555faf-cec2-41d7-9318-00174b5dd69e",
+                                        safari_web_id: "web.onesignal.auto.2900aeea-27da-4bc5-9f95-2e3d9a76781c",
+                                        notifyButton: {
+                                                enable: true,
+                                        },
+                                });
+                        });
+                </script>
 
-<script>
-  window.OneSignal = window.OneSignal || [];
-  OneSignal.push(function() {
-    OneSignal.init({
-      appId: "YOUR_APP_ID",
-      notifyButton: {
-        enable: true, // Activer la cloche d'abonnement
-        size: 'medium', // Taille de la cloche
-        theme: 'default', // Thème de la cloche
-        position: 'bottom-right', // Position de la cloche
-        offset: {
-          bottom: '0px',
-          right: '0px'
-        },
-        showCredit: false, // Cacher le logo OneSignal
-        text: {
-          'tip.state.unsubscribed': 'Subscribe to notifications',
-          'tip.state.subscribed': "You're subscribed to notifications",
-          'tip.state.blocked': "You've blocked notifications",
-          'message.prenotify': 'Click to subscribe to notifications',
-          'message.action.subscribed': "Thanks for subscribing!",
-          'message.action.resubscribed': "You're subscribed to notifications",
-          'message.action.unsubscribed': "You won't receive notifications again",
-          'dialog.main.title': 'Manage Site Notifications',
-          'dialog.main.button.subscribe': 'SUBSCRIBE',
-          'dialog.main.button.unsubscribe': 'UNSUBSCRIBE',
-          'dialog.blocked.title': 'Unblock Notifications',
-          'dialog.blocked.message': "Follow these instructions to allow notifications:"
-        }
-      }
-    });
-  });
-</script>
-
+                <script>
+                        window.OneSignal = window.OneSignal || [];
+                        OneSignal.push(function () {
+                                OneSignal.init({
+                                        appId: "YOUR_APP_ID",
+                                        notifyButton: {
+                                                enable: true, // Activer la cloche d'abonnement
+                                                size: "medium", // Taille de la cloche
+                                                theme: "default", // Thème de la cloche
+                                                position: "bottom-right", // Position de la cloche
+                                                offset: {
+                                                        bottom: "0px",
+                                                        right: "0px",
+                                                },
+                                                showCredit: false, // Cacher le logo OneSignal
+                                                text: {
+                                                        "tip.state.unsubscribed": "Souhaitez-vous recevoir des notifications ?",
+                                                        "tip.state.subscribed": "Super, vous êtes abonné aux notifications",
+                                                        "tip.state.blocked": "Suivez ces instructions pour autoriser les notifications",
+                                                        "message.prenotify": "Cliquez pour recevoir des notifications",
+                                                        "message.action.subscribed": "Merci de vous être abonné",
+                                                        "message.action.resubscribed": "Vous êtes de nouveau abonné",
+                                                        "message.action.unsubscribed": "Vous ne recevrez plus de notifications",
+                                                        "dialog.main.title": "Gérer les notifications",
+                                                        "dialog.main.button.subscribe": "S'ABONNER",
+                                                        "dialog.main.button.unsubscribe": "SE DÉSABONNER",
+                                                        "dialog.blocked.title": "Débloquer les notifications",
+                                                        "dialog.blocked.message": "Suivez les instructions pour autoriser les notifications:",
+                                                },
+                                        },
+                                });
+                        });
+                </script>
         </body>
 </html>
