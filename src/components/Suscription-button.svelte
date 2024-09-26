@@ -3,23 +3,31 @@
   
   let isSubscribed = false;
 
-  // Initialise OneSignal
-  onMount(async () => {
+  // Fonction pour vérifier si OneSignal est prêt
+  async function checkOneSignalReady() {
     if (typeof window.OneSignal !== 'undefined') {
-      await window.OneSignal.init({
-        appId: "6b555faf-cec2-41d7-9318-00174b5dd69e",
-      });
-
+      // Vérifiez si les notifications sont activées
       const permission = await window.OneSignal.getNotificationPermission();
       isSubscribed = permission === 'granted';
+    } else {
+      console.error('OneSignal n\'est pas disponible.');
     }
+  }
+
+  onMount(() => {
+    checkOneSignalReady();
   });
 
+  // Gérer l'abonnement aux notifications
   const handleSubscribe = async () => {
     try {
-      const response = await window.OneSignal.registerForPushNotifications();
-      isSubscribed = response; // mettez à jour l'état d'abonnement
-      console.log('Notifications activées', response);
+      if (typeof window.OneSignal !== 'undefined') {
+        const response = await window.OneSignal.registerForPushNotifications();
+        isSubscribed = response === 'granted'; // Mettez à jour l'état d'abonnement
+        console.log('Notifications activées', response);
+      } else {
+        console.error('OneSignal n\'est pas disponible pour s\'inscrire aux notifications.');
+      }
     } catch (error) {
       console.error('Erreur lors de la demande de notification :', error);
     }
@@ -29,6 +37,8 @@
 <button on:click={handleSubscribe}>
   {isSubscribed ? 'Notifications activées' : 'Activer les notifications'}
 </button>
+
+
 
 
 <style>
