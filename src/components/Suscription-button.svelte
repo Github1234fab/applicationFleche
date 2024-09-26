@@ -1,27 +1,30 @@
 <script>
-  function handleSubscribe() {
-    // Initialisation du SDK OneSignal
-    OneSignal.push(function () {
-      // Vérifie l'état des notifications pour l'utilisateur
-      OneSignal.getNotificationPermission().then(function(permission) {
-        if (permission === 'granted') {
-          console.log('Les notifications sont déjà activées.');
-        } else {
-          // Demande la permission de recevoir des notifications
-          OneSignal.showNativePrompt().then(function() {
-            console.log('Demande d\'autorisation envoyée.');
-          }).catch(function(error) {
-            console.error('Erreur lors de la demande d\'autorisation:', error);
-          });
-        }
+  import { onMount } from 'svelte';
+  import OneSignal from '@nolanx/svelte-onesignal';
+
+  let isSubscribed = false;
+
+  onMount(async () => {
+      await OneSignal.init("6b555faf-cec2-41d7-9318-00174b5dd69e");
+
+      const permissions = await OneSignal.getPermissions();
+      isSubscribed = permissions.authorized;
+
+      OneSignal.on('subscriptionChange', (event) => {
+          isSubscribed = event.isSubscribed;
       });
-    });
-  }
+  });
+
+  const handleSubscribe = async () => {
+      await OneSignal.promptForPushNotificationsWithUserResponse();
+  };
 </script>
 
 <button on:click={handleSubscribe}>
-  S'abonner aux notifications
+  {isSubscribed ? 'Notifications activées' : 'Activer les notifications'}
 </button>
+
+
 
 <style>
 
