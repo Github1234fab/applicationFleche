@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
   import { onMount } from 'svelte';
   
   let isSubscribed = false;
@@ -51,4 +51,4 @@
         border-radius: 5px;
         cursor: pointer;
     }
-</style>
+</style> -->

@@ -49,6 +49,21 @@
                                                         "dialog.blocked.message": "Suivez les instructions pour autoriser les notifications:",
                                                 },
                                         },
+                                        promptOptions: {
+                                                slidedown: {
+                                                        prompts: [
+                                                                {
+                                                                        type: "push",
+                                                                        autoPrompt: true,
+                                                                        text: {
+                                                                                actionMessage: "We'd like to show you notifications for the latest news and updates.",
+                                                                                acceptButton: "Allow",
+                                                                                cancelButton: "No Thanks",
+                                                                        },
+                                                                },
+                                                        ],
+                                                },
+                                        },
                                 });
                         });
                 </script>
