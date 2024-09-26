@@ -1,38 +1,33 @@
 <script>
-    import { onMount } from 'svelte';
+  import { onMount } from 'svelte';
+  
+  let isSubscribed = false;
 
-    let isSubscribed = false;
+  // Initialise OneSignal
+  onMount(async () => {
+    if (typeof window.OneSignal !== 'undefined') {
+      await window.OneSignal.init({
+        appId: "6b555faf-cec2-41d7-9318-00174b5dd69e",
+      });
 
-    onMount(() => {
-        // Vérifie si OneSignal est défini
-        if (window.OneSignal) {
-            window.OneSignal.push(function() {
-                // Vérifie si les notifications sont activées
-                OneSignal.isPushNotificationsEnabled((enabled) => {
-                    isSubscribed = enabled;
-                });
+      const permission = await window.OneSignal.getNotificationPermission();
+      isSubscribed = permission === 'granted';
+    }
+  });
 
-                // Gère l'abonnement
-                OneSignal.on('subscriptionChange', (event) => {
-                    isSubscribed = event.isSubscribed;
-                });
-            });
-        } else {
-            console.error('OneSignal is not defined');
-        }
-    });
-
-    const handleSubscribe = () => {
-        if (window.OneSignal) {
-            window.OneSignal.push(() => {
-                OneSignal.registerForPushNotifications();
-            });
-        }
-    };
+  const handleSubscribe = async () => {
+    try {
+      const response = await window.OneSignal.registerForPushNotifications();
+      isSubscribed = response; // mettez à jour l'état d'abonnement
+      console.log('Notifications activées', response);
+    } catch (error) {
+      console.error('Erreur lors de la demande de notification :', error);
+    }
+  };
 </script>
 
 <button on:click={handleSubscribe}>
-    {isSubscribed ? 'Notifications activées' : 'Activer les notifications'}
+  {isSubscribed ? 'Notifications activées' : 'Activer les notifications'}
 </button>
 
 
