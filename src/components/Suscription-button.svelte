@@ -1,18 +1,18 @@
 <script>
-  let isSubscribed = false;
-
   function handleSubscribe() {
-    // Vérifie si les notifications sont déjà activées
+    // Initialisation du SDK OneSignal
     OneSignal.push(function () {
-      OneSignal.isPushNotificationsEnabled(function (enabled) {
-        if (!enabled) {
-          // Demande la permission de recevoir des notifications
-          OneSignal.push(function() {
-            OneSignal.showNativePrompt(); // Ceci déclenche l'invite de permission
-            console.log("permissions activées")
-          });
+      // Vérifie l'état des notifications pour l'utilisateur
+      OneSignal.getNotificationPermission().then(function(permission) {
+        if (permission === 'granted') {
+          console.log('Les notifications sont déjà activées.');
         } else {
-          console.log("Les notifications sont déjà activées.");
+          // Demande la permission de recevoir des notifications
+          OneSignal.showNativePrompt().then(function() {
+            console.log('Demande d\'autorisation envoyée.');
+          }).catch(function(error) {
+            console.error('Erreur lors de la demande d\'autorisation:', error);
+          });
         }
       });
     });
