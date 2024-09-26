@@ -1,4 +1,4 @@
-<!-- <script>
+<script>
   import { onMount } from 'svelte';
   
   let isSubscribed = false;
@@ -6,8 +6,8 @@
   // Fonction pour vérifier si OneSignal est prêt
   async function checkOneSignalReady() {
     if (typeof window.OneSignal !== 'undefined') {
-      // Vérifiez si les notifications sont activées
-      const permission = await window.OneSignal.getNotificationPermission();
+      // Vérifie si les notifications sont activées
+      const permission = await window.OneSignal.Notifications.getPermission();
       isSubscribed = permission === 'granted';
     } else {
       console.error('OneSignal n\'est pas disponible.');
@@ -22,8 +22,8 @@
   const handleSubscribe = async () => {
     try {
       if (typeof window.OneSignal !== 'undefined') {
-        const response = await window.OneSignal.registerForPushNotifications();
-        isSubscribed = response === 'granted'; // Mettez à jour l'état d'abonnement
+        const response = await window.OneSignal.Notifications.requestPermission();
+        isSubscribed = response === 'granted'; // Mets à jour l'état d'abonnement
         console.log('Notifications activées', response);
       } else {
         console.error('OneSignal n\'est pas disponible pour s\'inscrire aux notifications.');
@@ -37,7 +37,6 @@
 <button on:click={handleSubscribe}>
   {isSubscribed ? 'Notifications activées' : 'Activer les notifications'}
 </button>
-
 
 
 
