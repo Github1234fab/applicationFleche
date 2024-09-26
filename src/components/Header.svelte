@@ -3,6 +3,8 @@
         import svgMenu from "../assets/svg-menu.svg";
         import { slide } from "svelte/transition";
         let menuVisible = false;
+        import ButtonSuscription from "../components/Suscription-button.svelte";
+        import SuscriptionButton from "../components/Suscription-button.svelte";
         function openCloseMenu() {
                 menuVisible = !menuVisible;
         }
@@ -13,6 +15,7 @@
                 <a href="/">
                 <img class="logo" src={Flèche} alt="Logo" /></a>
                 <!-- <h1></h1> -->
+<SuscriptionButton/>
                 <button on:click={openCloseMenu}>
                         <img class="svg-menu" src={svgMenu} alt="Menu" />
                 </button>
