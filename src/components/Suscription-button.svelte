@@ -1,13 +1,27 @@
 <script>
-    // Fonction pour gérer le clic sur le bouton
-    function handleSubscribeClick() {
-        OneSignal.push(function () {
-            OneSignal.registerForPushNotifications();
-        });
-    }
+  let isSubscribed = false;
+
+  function handleSubscribe() {
+    // Vérifie si les notifications sont déjà activées
+    OneSignal.push(function () {
+      OneSignal.isPushNotificationsEnabled(function (enabled) {
+        if (!enabled) {
+          // Demande la permission de recevoir des notifications
+          OneSignal.push(function() {
+            OneSignal.showNativePrompt(); // Ceci déclenche l'invite de permission
+            console.log("permissions activées")
+          });
+        } else {
+          console.log("Les notifications sont déjà activées.");
+        }
+      });
+    });
+  }
 </script>
 
-<button on:click={handleSubscribeClick}>S'abonner aux notifications</button>
+<button on:click={handleSubscribe}>
+  S'abonner aux notifications
+</button>
 
 <style>
 
