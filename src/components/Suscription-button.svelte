@@ -1,4 +1,4 @@
-<script>
+<!-- <script>
   import { onMount } from 'svelte';
   
   let isSubscribed = false;
@@ -38,10 +38,10 @@
 
 <button on:click={handleSubscribe}>
   {isSubscribed ? 'Notifications activées' : 'Activer les notifications'}
-</button>
+</button> -->
 
 
-
+<!-- 
 <style>
 
     button {
@@ -52,4 +52,4 @@
         border-radius: 5px;
         cursor: pointer;
     }
-</style> -->
+</style> --> 
