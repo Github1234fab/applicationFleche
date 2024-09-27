@@ -18,7 +18,7 @@
                 <div class="onesignal-customlink-container"></div>
 
                 <script src="https://cdn.onesignal.com/sdks/web/v16/OneSignalSDK.page.js" defer></script>
-<!-- <script>
+<script>
   window.OneSignalDeferred = window.OneSignalDeferred || [];
   OneSignalDeferred.push(async function (OneSignal) {
     await OneSignal.init({
@@ -54,29 +54,9 @@
     // Affiche l'invite de permission pour les notifications
     OneSignal.showSlidedownPrompt();
   });
-</script> -->
-
-<script>
-  window.OneSignalDeferred = window.OneSignalDeferred || [];
-  OneSignalDeferred.push(async function (OneSignal) {
-    await OneSignal.init({
-      appId: "6b555faf-cec2-41d7-9318-00174b5dd69e",
-      safari_web_id: "web.onesignal.auto.2900aeea-27da-4bc5-9f95-2e3d9a76781c",
-      notifyButton: {
-        enable: false, // Désactive le bouton pour forcer la demande de permission
-      },
-    });
-
-    // Demande de permission pour les notifications
-    OneSignal.requestPermission().then(function(permission) {
-      if (permission) {
-        // Permission accordée
-      } else {
-        // Permission refusée
-      }
-    });
-  });
 </script>
+
+
 
         </body>
 </html>
