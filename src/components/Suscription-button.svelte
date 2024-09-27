@@ -8,6 +8,7 @@
     if (typeof window.OneSignal !== 'undefined') {
       // Vérifie si les notifications sont activées
       const permission = await window.OneSignal.Notifications.getPermission();
+      console.log("Permission actuelle:", permission);
       isSubscribed = permission === 'granted';
     } else {
       console.error('OneSignal n\'est pas disponible.');
@@ -22,6 +23,7 @@
   const handleSubscribe = async () => {
     try {
       if (typeof window.OneSignal !== 'undefined') {
+        console.log(1);
         const response = await window.OneSignal.Notifications.requestPermission();
         isSubscribed = response === 'granted'; // Mets à jour l'état d'abonnement
         console.log('Notifications activées', response);
